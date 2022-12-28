@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>window-load</title>
+    <!-- defer : html 파싱되어 호출되기 직전에 발생 , html 문서만 출력되고 기능이 안되면 X 이 기능을 사용하면 그럴 일이 없다.-->
+    <script src="test.js" defer></script>
+  </head>
+  <body></body>
+  <script>
+    // 오직 document(html)만 완료되면 호출
+    window.addEventListener("DOMContentLoaded", () => {
+      console.log("DOMContentLoaded");
+    });
+
+    // resources (css, images 등) 모두 다운로드완료되면 호출
+    window.addEventListener("load", () => {
+      console.log("load");
+    });
+    //
+
+    // before resource unloaded 페이지를 나가기 직전에 발생
+    window.addEventListener("beforeunloaded", () => {
+      console.log("beforeunloaded");
+    });
+
+    // resource unloaded 페이지를 나갔을때 완전히 리소스가 없어질때
+    window.addEventListener("unloaded", () => {
+      console.log("unloaded");
+    });
+  </script>
+</html>
