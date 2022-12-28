@@ -29,18 +29,21 @@
 
     <script>
       const ClickPrint = document.querySelector(".box");
+
       // box를 클릭하는 경우 -> {코드} 실행
       ClickPrint.addEventListener("click", (e) => {
         // getBoundingClientRect() 함수를 이용하여 reck을 받아옴
         const domRect = ClickPrint.getBoundingClientRect();
-        // console.log(`domRect : ${domRect}`);
 
-        console.log(domRect); // 원하는 출력값이 이래야 나옴
-        // 브라우저 위에서 부터 아래 박스 위치, 박스 길이등 출력
-        console.log(`pageX : ${event.pageX}`);
-        console.log(`pageY : ${event.pageY}`);
-        console.log(`clientX :${event.clientX}`);
-        console.log(`clientY : ${event.clientY}`);
+        // console.log(`domRect : ${domRect}`);
+        console.log(domRect);
+        // 브라우저 위에서 부터 박스 위치, 박스 길이 등등 출력
+        console.log(`pageX : ${event.pageX}, pageY : ${event.pageY}`);
+
+        // 스크롤까지 다올린 page의 맨 위 왼쪽 에서 부터 시작 x,y
+
+        console.log(`clientX :${event.clientX}, clientY : ${event.clientY}`);
+        // 현재보이는 브라우저에서의 맨 위 왼쪽 에서 부터 클릭 지점 x,y
       });
     </script>
   </body>
