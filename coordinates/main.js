@@ -11,7 +11,7 @@ document.addEventListener("mousemove", (e) => {
   /* 
   2. 현재보이는 브라우저에서 mousemove 움직이는 이벤트를 따라 실시간 출력
        (해당 이벤트 없으면 브라우저 클릭하는 위치출력)*/
-  console.log(`${e.clientX}, ${e.clientY}`);
+  // console.log(`${e.clientX}, ${e.clientY}`);
   const x = e.clientX;
   const y = e.clientY;
 
@@ -25,4 +25,7 @@ document.addEventListener("mousemove", (e) => {
   // 좌표 값 이동
   coordinates_value.style.left = `${x}px`;
   coordinates_value.style.top = `${y}px`;
+
+  // 4. html coordinates_value 태그 값(좌표위치)을 변경해준다.
+  coordinates_value.innerHTML = `${x}px, ${y}px`;
 });
