@@ -29,10 +29,17 @@ header {
   background-color: pink;
 }
 footer {
+  display: flex;
   border-bottom-right-radius: 3px;
   height: 17%;
   width: 100%;
   background-color: pink;
+  justify-content: center;
+  align-items: center;
+}
+.fa-plus-square {
+  color: white;
+  font-size: 50px;
 }
 
 .item-list {
