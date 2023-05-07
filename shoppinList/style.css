@@ -5,7 +5,6 @@
 
 .main-container {
   display: flex;
-  /* margin: 0 auto; */
   align-items: center;
   justify-content: center;
   width: 100vh;
@@ -28,6 +27,27 @@ header {
   width: 100%;
   background-color: pink;
 }
+.item-list {
+  background-color: whitesmoke;
+  width: 100%;
+  height: 63%;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  height: 10%;
+  font-size: 20px;
+  padding: 10px 20px;
+  border-bottom: 1px solid rgb(184, 180, 180);
+  list-style-type: none;
+}
+
+.item > span {
+  margin: 10px;
+}
+
 footer {
   display: flex;
   border-bottom-right-radius: 3px;
@@ -37,23 +57,6 @@ footer {
   justify-content: center;
   align-items: center;
 }
-.fa-plus-square {
-  color: white;
-  font-size: 50px;
-}
-
-.item-list {
-  background-color: whitesmoke;
-  width: 100%;
-  height: 63%;
-}
-.item {
-  background-color: white;
-
-  height: 7%;
-  padding: 10px 20px;
-  border-bottom: 1px solid rgb(184, 180, 180);
-}
 
 input {
   width: 100%;
@@ -61,6 +64,13 @@ input {
   height: 7%;
 }
 
-li {
-  list-style-type: none;
+.fa-plus-square {
+  color: white;
+  font-size: 50px;
+}
+
+input {
+  width: 100%;
+  border-style: none;
+  height: 7%;
 }
