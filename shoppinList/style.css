@@ -1,4 +1,5 @@
 * {
+  box-sizing: border-box;
   margin: 0px;
   padding: 0px;
 }
@@ -9,13 +10,14 @@
   justify-content: center;
   width: 100vh;
   height: 100vh;
+  background-color: beige;
 }
 
 .container {
   width: 400px;
   height: 600px;
-  border: 1px solid grey;
-  border-radius: 3px;
+
+  border-radius: 10px;
 }
 
 header {
@@ -26,11 +28,21 @@ header {
   height: 13%;
   width: 100%;
   background-color: pink;
+  font-size: 25px;
+  font-weight: 600;
+  background: rgb(66, 167, 255);
+  background: linear-gradient(
+    137deg,
+    rgba(66, 167, 255, 0.9396751740139211) 22%,
+    rgba(255, 96, 202, 0.665893271461717) 62%
+  );
+  border-radius: 10px 10px 0 0;
 }
 .item-list {
   background-color: whitesmoke;
   width: 100%;
   height: 63%;
+  overflow-y: auto;
 }
 
 .item {
@@ -56,6 +68,13 @@ footer {
   background-color: pink;
   justify-content: center;
   align-items: center;
+  background: rgb(66, 167, 255);
+  background: linear-gradient(
+    137deg,
+    rgba(66, 167, 255, 0.9396751740139211) 22%,
+    rgba(255, 96, 202, 0.665893271461717) 62%
+  );
+  border-radius: 0 0 10px 10px;
 }
 
 input {
