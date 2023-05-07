@@ -7,6 +7,13 @@ const deleteBtn = document.querySelector(".item-delete");
 function onAdd() {
   // 1) input 입력한 텍스트 갖고 오기
   const itemNm = input.value;
+  //+ 버튼눌러 추가한 후 포커싱이 버튼으로 가는 것 해결
+  // 값이 "" 빈문자열일경우 포커싱하는 함수 추가
+  if (itemNm === "") {
+    input.focus();
+    return;
+  }
+
   // 2) 새로운 item 생성 (추가 item)
   const item = createItem(itemNm);
   // 3) + 버튼 , enter 키 누르면 목록에 item 추가하기
@@ -56,4 +63,12 @@ function createItem(itemNm) {
 // 추가 버튼 기능 : 버튼 누를경우 item 추가
 addBtn.addEventListener("click", () => {
   onAdd();
+});
+
+// 엔터키 기능 : item 추가
+input.addEventListener("keypress", (e) => {
+  // console.log("key");
+  if (e.key === "Enter") {
+    onAdd();
+  }
 });
