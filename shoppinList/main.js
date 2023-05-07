@@ -13,11 +13,13 @@ function onAdd() {
     input.focus();
     return;
   }
-
   // 2) 새로운 item 생성 (추가 item)
   const item = createItem(itemNm);
   // 3) + 버튼 , enter 키 누르면 목록에 item 추가하기
   itemList.appendChild(item);
+  // 6) 마지막 추가되는 item 보이게 설정
+  item.scrollIntoView();
+
   // 4) input 초기화
   input.value = "";
   // 5) input 창에 포커스하도록 하여, input 창 다시 클릭하지 않아도 바로 타이핑 칠수있도록함
