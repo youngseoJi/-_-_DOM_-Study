@@ -1,7 +1,12 @@
 const itemList = document.querySelector(".item-list");
 const input = document.querySelector("input");
 const addBtn = document.querySelector(".item-add");
-const deleteBtn = document.querySelector(".item-delete");
+const addItem = document.querySelector(".add-item");
+
+addItem.addEventListener("submit", (e) => {
+  e.preventDefault(); // 새로고침 방지
+  onAdd();
+});
 
 // 목록에 타이핑한 아이템 추가하기
 function onAdd() {
@@ -50,17 +55,21 @@ function createItem(itemNm) {
   return itemRow;
 }
 
-// 추가 버튼 기능 : 버튼 누를경우 item 추가
-addBtn.addEventListener("click", () => {
-  onAdd();
-});
+// // 추가 버튼 기능 : 버튼 누를경우 item 추가
+// addBtn.addEventListener("click", () => {
+//   onAdd();
+// });
 
-// 엔터키 기능 : item 추가
-input.addEventListener("keypress", (e) => {
-  if (e.key === "Enter") {
-    onAdd();
-  }
-});
+// // 엔터키 기능 : item 추가   keypress -> keydown 변경 (keypress는 사용안할예정)
+// input.addEventListener("keydown", (e) => {
+//   // 에러 방지 : 글자가 생성중인 도중에는 이벤트가 작동안하도록 설정
+//   if (e.isComposing) {
+//     return;
+//   }
+//   if (e.key === "Enter") {
+//     onAdd();
+//   }
+// });
 
 // 삭제 버튼 기능 : 클릭한 요소 item의 속성값 id를 조회하여 해당 item 삭제
 itemList.addEventListener("click", (e) => {
