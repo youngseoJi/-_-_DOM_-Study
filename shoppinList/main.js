@@ -26,39 +26,25 @@ function onAdd() {
   input.focus();
 }
 
+let id = 0;
+
 // item 생성하기
 function createItem(itemNm) {
-  // 입력받은 itme 과 item 구분선을 생성한다.
-
-  // item 1줄 칸
+  // 리팩토링
+  // item 한 칸에 들어갈 html 요소 작성하여 넣기
   const itemRow = document.createElement("li");
   itemRow.setAttribute("class", "item-row");
-  // 구분선
-  const itemDivider = document.createElement("div");
-  itemDivider.setAttribute("class", "item-divider");
+  itemRow.innerHTML = `
+    <div class="item" data_id=${id}>
+      <span class="item-name">${itemNm}</span>
+      <button class="item-delete" data_id=${id}>
+        <i class="fas fa-trash-alt"></i>
+      </button>
+    </div>
+    <div class="item-divider"></div>
+  `;
 
-  // item 요소
-  const item = document.createElement("div");
-  item.setAttribute("class", "item");
-  // item 이름
-  const itemName = document.createElement("span");
-  itemName.setAttribute("class", "item-name");
-  itemName.innerText = itemNm;
-  // 삭제 버튼
-  const deleteBtn = document.createElement("button");
-  deleteBtn.setAttribute("class", "item-delete");
-  deleteBtn.innerHTML = '<i class="fas fa-trash-alt"></i>';
-
-  // 삭제 기능 생성 : 버튼 누르는 경우 -> itemRow 목록 1줄 삭제
-  deleteBtn.addEventListener("click", () => {
-    itemList.removeChild(itemRow);
-  });
-
-  item.appendChild(itemName);
-  item.appendChild(deleteBtn);
-
-  itemRow.appendChild(item);
-  itemRow.appendChild(itemDivider);
+  id++;
   return itemRow;
 }
 
