@@ -26,6 +26,7 @@ function onAdd() {
   input.focus();
 }
 
+// item 리스트에 id 지정
 let id = 0;
 
 // item 생성하기
@@ -34,16 +35,17 @@ function createItem(itemNm) {
   // item 한 칸에 들어갈 html 요소 작성하여 넣기
   const itemRow = document.createElement("li");
   itemRow.setAttribute("class", "item-row");
+  // data-id=${id} 데이터 id 지정해주기
   itemRow.innerHTML = `
-    <div class="item" data_id=${id}>
+    <div class="item" data-id=${id}>
       <span class="item-name">${itemNm}</span>
-      <button class="item-delete" data_id=${id}>
-        <i class="fas fa-trash-alt"></i>
+      <button class="item-delete">
+        <i class="fas fa-trash-alt" data-id=${id}></i>
       </button>
     </div>
     <div class="item-divider"></div>
   `;
-
+  // id : 1, 2, 3, 4, 5...
   id++;
   return itemRow;
 }
@@ -57,5 +59,17 @@ addBtn.addEventListener("click", () => {
 input.addEventListener("keypress", (e) => {
   if (e.key === "Enter") {
     onAdd();
+  }
+});
+
+// 삭제 버튼 기능 : 클릭한 요소 item의 속성값 id를 조회하여 해당 item 삭제
+itemList.addEventListener("click", (e) => {
+  // 지정해둔 data id 이용 -> dataset.id 데이터 셋에 담아둔 id 갖고오기
+  const id = e.target.dataset.id;
+
+  if (id) {
+    // 해당 id 값을 가진 item 요소를 불러와 삭제한다.
+    const deletedItem = document.querySelector(`.item[data-id="${id}"]`);
+    deletedItem.remove();
   }
 });
