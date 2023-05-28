@@ -69,7 +69,6 @@ addBtn.addEventListener("click", () => {
 
 // 엔터키 기능 : item 추가
 input.addEventListener("keypress", (e) => {
-  // console.log("key");
   if (e.key === "Enter") {
     onAdd();
   }
