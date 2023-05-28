@@ -27,15 +27,26 @@
     <div></div>
     <div></div>
     <script>
-      document.addEventListener('wheel', event => {
-        console.log('scrolling');
-        event.preventDefault();
-      });
-      const checkbox = document.querySelector('input');
-      checkbox.addEventListener('click', event => {
+      // 빠르게 동작해야하는 이벤트를 브라우저가 우선적으로 실행한다.
+      // ->    event.preventDefault(); 무시 브라우저의 기본값을 취소할 수 없다.
+
+      // 수동적 이벤트 -> 능동적으로 변경가능 옵션!
+      document.addEventListener(
+        "wheel",
+        (event) => {
+          console.log("scrolling");
+          event.preventDefault();
+        },
+        { passive: false }
+      );
+      // 스크롤 이벤트도 옵션값을 이용하여 → 브라우저의 실행을 취소할 수 있다.
+      // but 일반적으로 passive 이벤트일 경우에는 그 상태 그대로 쓰는 것이 좋다.
+      const checkbox = document.querySelector("input");
+      // 능동적 이벤트
+      checkbox.addEventListener("click", (event) => {
         // long
-        console.log('checked');
-        event.preventDefault();
+        console.log("checked");
+        event.preventDefault(); // 브라우저의 기본 행동 취소 -> ex) 체크박스에 체크를 막는 것
       });
     </script>
   </body>
